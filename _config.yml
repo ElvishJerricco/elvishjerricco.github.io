@@ -1,0 +1,19 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Will Fancher
+email: willfancher38@gmail.com
+description: > # I'm a freelance developer
+  interested in Haskell and web development!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://elvishjerricco.github.io" # the base hostname & protocol for your site
+twitter_username: ElvishJerricco
+github_username:  ElvishJerricco
+
+# Build settings
+markdown: kramdown
