@@ -2,8 +2,9 @@
 
   <div class="container">
 
+    <!-- Uncomment when there's too many pages for mobile -->
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <!-- <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -11,10 +12,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a>
-    </div>
+    </div> -->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         {% for my_page in site.pages %}
           {% if my_page.title %}
@@ -22,7 +23,16 @@
           {% endif %}
         {% endfor %}
       </ul>
-    </div>
+    </div> -->
+
+    <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a>
+    <ul class="nav navbar-nav pull-right">
+      {% for my_page in site.pages %}
+        {% if my_page.title %}
+        <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
 
   </div>
 
