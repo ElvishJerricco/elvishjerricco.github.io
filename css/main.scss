@@ -2,33 +2,29 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-
-// Sticky footer
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+.top-buffer {
+  margin-top: 40px;
 }
 
-#main {
-  flex: 1;
-}
-.footer {
-  width: 100%;
-  background-color: #f5f5f5;
-}
-
-// Fix fonts
+/*******************************************************************************
+Fix fonts
+*******************************************************************************/
 $icon-font-path: "{{ site.bootstrap | prepend: site.baseurl }}/assets/fonts/bootstrap";
 $fa-font-path: "{{ site.font-awesome | prepend: site.baseurl }}/fonts";
 
+/*******************************************************************************
+Eliminate large desktop size
+*******************************************************************************/
+$container-large-desktop: 970px;
+
+/*******************************************************************************
 // Import partials from `sass_dir` (defaults to `_sass`)
+*******************************************************************************/
 @import
         "syntax-highlighting",
         "bootstrap",
-        "font-awesome"
+        "font-awesome",
+        "flex",
+        "sticky-footer",
+        "tag"
 ;
