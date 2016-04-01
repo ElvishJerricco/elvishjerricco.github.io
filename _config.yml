@@ -19,8 +19,3 @@ font-awesome: /font-awesome-4.5.0
 
 # Build settings
 markdown: kramdown
-sass:
-  load_paths:
-    - _sass
-    - bootstrap-sass-3.3.6/assets/stylesheets
-    - font-awesome-4.5.0/scss
