@@ -11,7 +11,7 @@ email: willfancher38@gmail.com
 description: > # I'm a freelance developer
   interested in Haskell and web development!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://elvishjerricco.github.io" # the base hostname & protocol for your site
+url: "https://elvishjerricco.github.io" # the base hostname & protocol for your site
 twitter_username: ElvishJerricco
 github_username:  ElvishJerricco
 bootstrap: /bootstrap-sass-3.3.6
