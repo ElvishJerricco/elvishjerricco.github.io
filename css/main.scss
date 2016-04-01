@@ -22,8 +22,8 @@ $container-large-desktop: 970px;
 *******************************************************************************/
 @import
         "syntax-highlighting",
-        "bootstrap",
-        "font-awesome",
+        "..{{ site.bootstrap }}/assets/stylesheets/bootstrap",
+        "..{{ site.font-awesome }}/scss/font-awesome",
         "flex",
         "sticky-footer",
         "tag"
