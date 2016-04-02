@@ -28,9 +28,11 @@
     <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a>
     <ul class="nav navbar-nav pull-right">
       {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-        {% endif %}
+        {% unless my_page.exclude_from_nav %}
+          {% if my_page.title %}
+          <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+          {% endif %}
+        {% endunless %}
       {% endfor %}
     </ul>
 
