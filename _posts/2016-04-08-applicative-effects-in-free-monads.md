@@ -169,3 +169,57 @@ a [faster type-aligned list](https://hackage.haskell.org/package/type-aligned)
 might be a good place to start.
 
 Anyway, that's all I have so far. Let me know if you have any thoughts.
+
+**UPDATE:** Edward Kmett [pointed out](https://www.reddit.com/r/haskell/comments/4e0de9/applicative_effects_in_free_monads/d1wxm3w)
+that a better way to think of this is as a variation on `Free` that takes
+an Applicative rather than a Functor.
+
+> Anything free is relative to what you forget: Free -\| Forget
+>
+> The usual free monad is relative to a forgetful functor that takes any monad
+`f` and remembers just that `f` is a functor, and which maps monad homomorphisms
+to mere natural transformations.
+>
+> Similarly `Ap` is a free applicative relative to a forgetful functor that
+takes an applicative down to its underlying functor, and
+operational is a free monad relative to a forgetful functor that takes a monad
+all the way down to a type constructor of kind `* -> *`, not even a functor.
+>
+> On the other hand, you can easily define a 'free' construction that forgets
+that `f` is a monad and remembers that `f` is an applicative,
+then the free construction can know about the applicative for `f` and dispatch
+`(<*>)` through it accordingly.
+This is a bit tricky because unlike with `Functor`,
+the compatibility between `(<*>)` and `(>>=)` for the monad is less trivial,
+but **this** `Free` is the one you want to build such a `Free (Ap f)` on top of.
+
+The point is that if you factor `Ap` out of the `Freer` definition above,
+you end up with a `Free` monad that works with Applicatives instead of Functors.
+This is a useful distinction to make because this variant of `Free` can be
+applied to any Applicative, which would remove the need for `Ap` in many cases.
+
+```haskell
+data Free f a where
+  Val :: a -> Free f a
+  Free :: f (Free f a) -> Free f a
+
+instance Functor f => Functor (Free f) where
+  fmap f (Val a) = Val (f a)
+  fmap f (Free a) = Free (fmap (fmap f) a)
+
+instance Applicative f => Applicative (Free f) where
+  pure = Val
+  Val f <*> a = fmap f a
+  Freer f <*> Val a = Freer $ fmap (fmap ($ a)) f
+  Freer f <*> Freer a = Freer (fmap (<*>) f <*> a)
+
+instance Applicative f => Monad (Free f) where
+  Val a >>= k = k a
+  Freer a >>= k = Freer (fmap (>>= k) a)
+```
+
+Notice how the only difference between this and the original `Free` definition
+is that the `(<*>)` method is optimized for an Applicative `f`.
+Once applied with `Ap f`, this `Free` becomes the `Freer` defined above.
+But without `Ap`, this is still a valid `Free` monad,
+albeit a less powerful one.
