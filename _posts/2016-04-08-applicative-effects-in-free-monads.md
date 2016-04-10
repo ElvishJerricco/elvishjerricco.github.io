@@ -210,12 +210,12 @@ instance Functor f => Functor (Free f) where
 instance Applicative f => Applicative (Free f) where
   pure = Val
   Val f <*> a = fmap f a
-  Freer f <*> Val a = Freer $ fmap (fmap ($ a)) f
-  Freer f <*> Freer a = Freer (fmap (<*>) f <*> a)
+  Free f <*> Val a = Free $ fmap (fmap ($ a)) f
+  Free f <*> Free a = Free (fmap (<*>) f <*> a)
 
 instance Applicative f => Monad (Free f) where
   Val a >>= k = k a
-  Freer a >>= k = Freer (fmap (>>= k) a)
+  Free a >>= k = Free (fmap (>>= k) a)
 ```
 
 Notice how the only difference between this and the original `Free` definition
