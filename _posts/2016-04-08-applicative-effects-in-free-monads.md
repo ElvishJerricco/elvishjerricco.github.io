@@ -29,7 +29,7 @@ It'd be nice to bring this ability into a general free monad.
 Let's start with the definition of the `Free` monad.
 
 ```haskell
-data Free f where
+data Free f a where
   Val :: a -> Free f a
   Free :: f (Free f a) -> Free f a
 
