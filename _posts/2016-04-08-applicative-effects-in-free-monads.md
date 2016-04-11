@@ -16,7 +16,7 @@ This essentially means that `(<*>) = ap` in all cases.
 While this is fine most of the time,
 it can definitely be a problem for some effects.
 
-[Haxl](https://hackage.haskell.org/package/haxl), developed at FaceBook,
+[Haxl](https://hackage.haskell.org/package/haxl), developed at Facebook,
 is basically a free monad over a union of request types.
 The unique thing about Haxl is that it uses `(<*>)` to do requests in parallel.
 Essentially, any requests statically available in the arguments to `(<*>)`
