@@ -4,6 +4,9 @@ title:  "Applicative Effects in Free Monads"
 date:   2016-04-08
 categories:
 ---
+**UPDATE:** I've written a [second post](http://elvishjerricco.github.io/2016/04/13/more-on-applicative-effects-in-free-monads.html)
+addressing some issues with this one.
+
 Recently, I've been fascinated by the
 [Freer monad](http://okmij.org/ftp/Haskell/extensible/more.pdf),
 and free monads in general.
