@@ -10,6 +10,28 @@ I explored the problem of Applicative effects in free monads.
 between Edward Kmett, Dave Menendez, /u/MitchellSalad, and myself,
 I think I've come to a new understanding.
 
+For reference, here's my "free monad given an applicative."
+
+```haskell
+data Free f a where
+  Pure :: a -> Free f a
+  Free :: f (Free f a) -> Free f a
+
+instance Functor f => Functor (Free f) where
+  fmap f (Pure a) = Pure (f a)
+  fmap f (Free a) = Free (fmap (fmap f) a)
+
+instance Applicative f => Applicative (Free f) where
+  pure = Pure
+  Pure f <*> a = fmap f a
+  Free f <*> Pure a = Free $ fmap (fmap ($ a)) f
+  Free f <*> Free a = Free (fmap (<*>) f <*> a)
+
+instance Applicative f => Monad (Free f) where
+  Pure a >>= k = k a
+  Free a >>= k = Free (fmap (>>= k) a)
+```
+
 The core of the issue is that under my implementation,
 `(<*>)` was purposefully different than `ap`.
 Turns out, it's a law that `(<*>)` must be morally equivalent to `ap`.
