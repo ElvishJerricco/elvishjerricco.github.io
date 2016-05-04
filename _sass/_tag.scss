@@ -44,8 +44,14 @@ Tags
 .tag-text-lg {
   font-size: 8em;
   line-height: 100%;
+  // Prevent inheriting text-decoration
+  display: table;
+  width: 100%;
 }
 
 .tag-text-sm {
   font-size: 1em;
+  // Prevent inheriting text-decoration
+  display: table;
+  width: 100%;
 }
