@@ -6,6 +6,7 @@ layout: default
   <header>
     <h1 itemprop="name headline">{{ page.title }}</h1>
     <p class="text-muted">
+      <p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">Subscribe via RSS</a></p>
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
@@ -16,6 +17,8 @@ layout: default
       {% endif %}
     </p>
   </header>
+
+  <hr />
 
   <div itemprop="articleBody">
     {{ content }}
