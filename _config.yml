@@ -19,3 +19,9 @@ font-awesome: /font-awesome-4.5.0
 
 # Build settings
 markdown: kramdown
+
+# Workaround for my local jekyll version
+# https://github.com/jekyll/jekyll/issues/4427
+kramdown:
+  input: GFM
+  hard_wrap: false
