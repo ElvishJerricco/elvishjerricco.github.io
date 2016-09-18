@@ -4,33 +4,12 @@ layout: default
 
 {% include banner.html %}
 
-<div class="top-buffer">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 pull-right">
-      <div class="tag tag-success">
-        <p class="tag-text-lg">5+</p>
-        <p class="tag-text-sm">Years Experience</p>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-8">
-      <h1>Freelance software developer</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <blockquote>
       {% include about.html %}
-    </div>
+    </blockquote>
   </div>
 </div>
-<div class="top-buffer">
-  {% include portfolio.html %}
-</div>
-<div class="top-buffer">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="tag tag-info">
-        <p class="tag-text-lg"><span class="fa fa-user"></span></p>
-        <p class="tag-text-sm">Contact info</p>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-8">
-      {% include contact.html %}
-    </div>
-  </div>
-</div>
+
+{% include portfolio.html %}
