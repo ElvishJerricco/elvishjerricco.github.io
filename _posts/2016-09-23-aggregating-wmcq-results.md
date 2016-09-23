@@ -38,6 +38,7 @@ Anyway, without further ado, here are the decklists, in order of popularity.
   Interestingly, Dredge produced two versions that were remarkably similar.
   The reason the algorithm separated them was that two people played Tome Scour,
   requiring a *completely* different manabase.
+
   - [Dredge](http://decks.deckedbuilder.com/d/238192) (4)
   - [Tome Scour Dredge](http://decks.deckedbuilder.com/d/238193) (2)
 - [Affinity](http://decks.deckedbuilder.com/d/238197) (5)
