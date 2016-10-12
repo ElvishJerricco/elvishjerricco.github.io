@@ -5,6 +5,11 @@ date:   2016-10-12
 categories:
 ---
 
+**Abstract:** I define a typeclass for functors from Kleisli categories to Hask.
+This class turns out having more interesting properties than I expected,
+encompassing various Haskell patterns such as concurrency,
+and monad transformers.
+
 Monads are often described in terms of `do` notation.
 Every bind `(=<<)` equates to one statement in the `do` block.
 This is sufficient for explaining the usage of monads to newcomers.
