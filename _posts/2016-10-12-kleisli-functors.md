@@ -161,12 +161,12 @@ lift = kmap id . pure
 I'm not sure what implications this has on the laws.
 It seems like it means that if `f` is a `Monad` (or maybe just `Applicative`),
 it should support laws similar to the `MonadTrans` laws.
-Here's an attempt at those laws, but I don't have much confidence in these.
+Here's an attempt at a law, but I don't have much confidence in it.
+**Update:** I fixed a type error in the laws I had and reduced them to one.
+Still not all that confident in this being correct though.
 
 ```haskell
-kmap (g <=< f) (pure a) = kmap g (pure (a >>= f))
-                        = kmap id (pure (a >>= f >>= g))
-kmap id (pure (return a)) = pure a
+kmap f (pure a) = kmap id (pure (f a))
 ```
 
 Any given `MonadTrans` instance forms a `KleisliFunctor` instance,
