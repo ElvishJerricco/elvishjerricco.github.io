@@ -8,8 +8,6 @@
 # Site settings
 title: Will Fancher
 email: willfancher38@gmail.com
-description: > # I'm a freelance developer
-  interested in Haskell and web development!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://elvishjerricco.github.io" # the base hostname & protocol for your site
 twitter_username: ElvishJerricco
