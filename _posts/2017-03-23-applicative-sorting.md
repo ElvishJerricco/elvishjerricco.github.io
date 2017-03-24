@@ -74,8 +74,8 @@ unsafeReifyContents t bs = evalState (traverse f t) bs
  where
   f _ = do
     (b:bs') <- get
-	put bs'
-	return b
+    put bs'
+    return b
 ```
 
 The pattern we're binding `get` to is unsafe, but as long as the list
