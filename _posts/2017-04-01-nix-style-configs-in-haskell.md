@@ -5,6 +5,8 @@ date:   2017-04-01
 categories:
 ---
 
+[This is on GitHub](https://github.com/ElvishJerricco/extensible-config)
+
 One of the unique things about Nix is its extensible configuration
 system. Extensible configs allow you to override their fields in a way
 that will update all the other fields that depend on what you
