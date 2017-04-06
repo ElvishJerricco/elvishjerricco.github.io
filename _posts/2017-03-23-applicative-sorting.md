@@ -12,6 +12,12 @@ favorites because it generalizes the idea of a collection so
 elegantly. I will show how to use `traverse` to sort any such
 collection safely using a special applicative.
 
+**Update:**
+[Check out David Feuer's fast implementation](https://gist.github.com/treeowl/9621f58d55fe0c4f9162be0e074b1b29)
+and
+[/u/michaelt's benchmark](https://github.com/michaelt/traversable-sort).
+It seems this techinque can be competitively fast!
+
 ```haskell
 class (Functor t, Foldable t) => Traversable t where
   traverse :: Applicative f => (a -> f b) -> t a -> f (t b)
