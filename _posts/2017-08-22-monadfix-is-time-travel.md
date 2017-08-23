@@ -18,6 +18,7 @@ First, let's lay some groundwork. At the core of all of this is the
 ```haskell
 fix :: (a -> a) -> a
 fix f = let x = f x in x
+```
 
 Now, this is a little hard to grok at first, so I'll just
 [link an article by Matt Parsons](http://www.parsonsmatt.org/2016/10/26/grokking_fix.html)
