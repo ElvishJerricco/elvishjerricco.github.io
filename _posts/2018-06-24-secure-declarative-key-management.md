@@ -62,7 +62,7 @@ deploying keys without putting them in the Nix store.
     text = builtins.readFile ./secret-foo;
     user = "will";
     group = "wheel";
-	permissions = "0640";
+    permissions = "0640";
   };
 }
 ```
