@@ -24,4 +24,4 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-exclude: [bootstrap-sass-3.3.6/CHANGELOG.md]
+exclude: [bootstrap-sass-3.3.6/CHANGELOG.md, bootstrap-sass-3.3.6/README.md]
