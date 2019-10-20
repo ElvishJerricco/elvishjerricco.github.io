@@ -5,6 +5,16 @@ date:   2018-12-06
 categories:
 ---
 
+**UPDATE:** This does not work with LUKS 2, because Grub does not
+support reading from it. At least on NixOS, LUKS 2 is now the
+default. I have not updated this post to show how to force it to use
+LUKS 1, and I'm not sure that's a good idea anyway. I'm moving my
+system back to a normal `/boot` because of this and because Grub takes
+absolutely forever to decrypt the disk. Grub also has issues with new
+ZFS feature flags on occasion, and I'm not willing to take that risk.
+
+---
+
 Encryption and ZFS are each extremely valuable to have on your root
 disk. ZFS provides integrity checking and snapshotting, among *many*
 other things. And encryption can prevent data from being stolen or
